@@ -1,0 +1,40 @@
+{
+  "name": "linkedin-leads",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Automated LinkedIn outreach pipeline for club-owner personal-brand service",
+  "scripts": {
+    "probe:anthropic": "node execution/probe/check_anthropic.mjs",
+    "probe:notion": "node execution/probe/check_notion.mjs",
+    "probe:slack": "node execution/probe/check_slack.mjs",
+    "probe:gmail": "node execution/probe/check_gmail.mjs",
+    "probe:linkedin": "node execution/probe/check_linkedin.mjs",
+    "probe:all": "node execution/probe/check_all.mjs",
+    "gmail:authorize": "node execution/setup/gmail_authorize.mjs",
+    "linkedin:capture": "node execution/setup/linkedin_capture_session.mjs",
+    "notion:create-db": "node execution/setup/notion_create_db.mjs",
+    "ingest": "node execution/nav/run_ingest.mjs",
+    "personalize": "node execution/nav/run_personalize.mjs",
+    "send": "node execution/nav/run_send_queue.mjs",
+    "check:acceptances": "node execution/nav/run_acceptance_check.mjs",
+    "replies": "node execution/nav/run_reply_listener.mjs",
+    "notify": "node execution/nav/run_slack_notify.mjs",
+    "digest": "node execution/nav/run_daily_digest.mjs",
+    "email-followup": "node execution/nav/run_email_followup.mjs",
+    "dashboard": "node dashboard/server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0",
+    "@notionhq/client": "^2.2.15",
+    "@slack/web-api": "^7.7.0",
+    "chokidar": "^4.0.1",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "googleapis": "^144.0.0",
+    "playwright": "^1.48.2",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

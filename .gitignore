@@ -1,0 +1,47 @@
+# --- Secrets ---
+.env
+.env.local
+.env.*.local
+gmail_token.json
+linkedin_storage_state.json
+
+# --- Lock file (kill-switch) ---
+LOCK
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Workbench / runtime data ---
+.tmp/
+inbox/.processed/
+inbox/*.csv
+!inbox/.gitkeep
+
+# --- Project dev journal (operator-internal, not for public) ---
+memory/
+
+# --- Claude Code local-only settings ---
+.claude/settings.local.json
+
+# --- Operator-specific operational playbooks (not for public consumption) ---
+architecture/11_burner_warmup.md
+architecture/12_live_run_playbook.md
+
+# --- Sample data containing real people ---
+samples/real_test.csv
+
+# --- Reference PDFs (not project code) ---
+*.pdf
+
+# --- Playwright artifacts ---
+test-results/
+playwright-report/
+.playwright/
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+desktop.ini

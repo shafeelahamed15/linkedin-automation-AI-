@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkedIn Leads — Pipeline Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>📡</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">LinkedIn Leads</span>
+      <span class="brand-sub">pipeline dashboard</span>
+    </div>
+    <div class="status-pills">
+      <span id="pipeline-pill" class="pill pill-loading">…</span>
+      <span id="dryrun-pill" class="pill pill-muted">…</span>
+      <span id="window-pill" class="pill pill-muted">…</span>
+    </div>
+    <div class="topbar-right">
+      <span id="clock" class="clock">…</span>
+      <span id="last-refresh" class="last-refresh">never refreshed</span>
+      <button id="refresh-btn" class="btn-ghost" title="Refresh now">↻</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Row 1: big stat cards -->
+    <section class="grid-stats">
+      <div class="card stat-card">
+        <div class="stat-label">Today — Connections</div>
+        <div class="stat-value"><span id="today-conn-used">…</span><span class="stat-cap">/ <span id="today-conn-cap">…</span></span></div>
+        <div class="stat-bar"><div id="today-conn-bar" class="stat-bar-fill"></div></div>
+        <div class="stat-sub"><span id="today-conn-remaining">…</span> slots remaining</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-label">Today — DMs</div>
+        <div class="stat-value"><span id="today-dm-used">…</span><span class="stat-cap">/ <span id="today-dm-cap">…</span></span></div>
+        <div class="stat-bar"><div id="today-dm-bar" class="stat-bar-fill"></div></div>
+        <div class="stat-sub"><span id="today-dm-remaining">…</span> slots remaining</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-label">7-day — Connections</div>
+        <div class="stat-value"><span id="week-conn-used">…</span><span class="stat-cap">/ <span id="week-conn-cap">…</span></span></div>
+        <div class="stat-bar"><div id="week-conn-bar" class="stat-bar-fill"></div></div>
+        <div class="stat-sub"><span id="week-conn-remaining">…</span> slots remaining</div>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-label">Acceptance Rate</div>
+        <div class="stat-value"><span id="accept-rate">…</span></div>
+        <div class="stat-sub" id="accept-sub">…</div>
+      </div>
+    </section>
+
+    <!-- Row 2: pipeline funnel + safety state -->
+    <section class="grid-two">
+      <div class="card">
+        <h2 class="card-title">Lead pipeline</h2>
+        <div id="funnel" class="funnel">…</div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Safety state</h2>
+        <ul id="safety-list" class="kv-list">…</ul>
+      </div>
+    </section>
+
+    <!-- Row 3: scheduled tasks + recent activity -->
+    <section class="grid-two">
+      <div class="card">
+        <h2 class="card-title">Scheduled tasks</h2>
+        <table id="tasks-table" class="data-table"><tbody>…</tbody></table>
+        <div class="card-foot" id="tasks-foot">…</div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Recent activity</h2>
+        <ol id="activity-list" class="activity-list">…</ol>
+      </div>
+    </section>
+
+    <!-- Row 4: leads table -->
+    <section class="card leads-card">
+      <div class="leads-head">
+        <h2 class="card-title">Leads (<span id="leads-count">…</span>)</h2>
+        <div id="status-filters" class="filter-chips">…</div>
+      </div>
+      <div class="leads-table-wrap">
+        <table id="leads-table" class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th class="num">Sent</th>
+              <th class="num">Replies</th>
+              <th>Last action</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody">…</tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>localhost:3000 · auto-refresh 30s · operator <span id="operator-name">…</span></span>
+    <span class="footer-right">Notion DB <code id="notion-db-id">…</code></span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
