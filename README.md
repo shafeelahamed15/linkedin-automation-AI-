@@ -1,4 +1,5 @@
-# LinkedIn Leads
+# LinkedIn Automation
+
 
 An automated LinkedIn outreach pipeline with safety rails, ICP filtering, Claude-personalized openers, and human-in-the-loop reply review.
 
